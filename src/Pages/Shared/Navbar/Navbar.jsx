@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error.message));
+  };
   const menuOptions = (
     <>
       <li>
@@ -17,7 +25,7 @@ const Navbar = () => {
         <Link>Dashboard </Link>
       </li>
       <li>
-        <Link to='/signup'>Signup </Link>
+        <Link to="/signup">Signup </Link>
       </li>
     </>
   );
@@ -55,25 +63,37 @@ const Navbar = () => {
           <ul className="menu menu-horizontal text-xl px-1">{menuOptions}</ul>
         </div>
         <div className="navbar-end">
-          {/* <div className="flex items-center gap-5">
-            <div className="flex items-center">
-              <div className="avatar online">
-                <div className="w-12 rounded-full">
-                  <img
-                    className="w-12 rounded-full"
-                    src={user.photoURL}
-                    title={user.displayName || user.email}
-                  />
+          {user ? (
+            <>
+              <div className="flex items-center gap-5">
+                <div className="flex items-center">
+                  <div className="avatar online">
+                    <div className="w-12 rounded-full">
+                      <img
+                        className="w-12 rounded-full"
+                        src={user?.photoURL}
+                        title={user?.displayName || user?.email}
+                      />
+                    </div>
+                  </div>
+                  <p className="font-bold lg:block hidden ml-4">
+                    {user?.displayName || user?.email}
+                  </p>
                 </div>
+                <button
+                  className="btn bg-custom-gradient"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </button>
               </div>
-              <p className="font-bold lg:block hidden ml-4">
-                {user.displayName || user.email}
-              </p>
-            </div>
-            <button className="btn bg-custom-gradient" onClick={handleLogOut}>
-              Log Out
-            </button>
-          </div> */}
+            </>
+          ) : (
+            <>
+              <Link to='/login'><button className="btn bg-custom-gradient mr-3">LogIn</button></Link>
+              <Link to='/signup'><button className="btn bg-custom-gradient">SignUp</button></Link>
+            </>
+          )}
         </div>
       </div>
     </div>

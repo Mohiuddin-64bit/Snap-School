@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialSign from "../Shared/SocialSign/SocialSign";
 
 const Login = () => {
   const {
@@ -13,18 +14,18 @@ const Login = () => {
   } = useForm();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const { createUser, user, updateUserProfile } = useContext(AuthContext);
+  const { signIn, user } = useContext(AuthContext);
 
   const onSubmit = (data) => {
-    console.log(data)
-  }
+    signIn(data.email, data.password)
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error.message));
+  };
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="max-w-md w-full  mx-auto p-8 border border-gray-300 shadow-lg rounded-lg">
-        <h2 className="text-3xl font-bold mb-4 text-center">Sign Up</h2>
+        <h2 className="text-3xl font-bold mb-4 text-center">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-          
-          
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -82,10 +83,11 @@ const Login = () => {
             <input
               className="btn bg-blue-600 text-white"
               type="submit"
-              value="Sign Up"
+              value="Login"
             />
           </div>
         </form>
+        <SocialSign></SocialSign>
       </div>
     </div>
   );

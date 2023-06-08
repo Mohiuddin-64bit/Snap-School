@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialSign from "../Shared/SocialSign/SocialSign";
 
 const SignUp = () => {
   const {
@@ -18,7 +19,9 @@ const SignUp = () => {
       const loggedUser = result.user;
       console.log(loggedUser)
       updateUserProfile(data.name, data.photoURL)
-        .then(() => {})
+        .then(() => {
+
+        })
         .catch((error) => {
           console.log(error.message);
         });
@@ -120,6 +123,7 @@ const SignUp = () => {
             />
           </div>
         </form>
+        <SocialSign></SocialSign>
         <p>
           <small>
             Already have an account <Link to="/login">Login</Link>
