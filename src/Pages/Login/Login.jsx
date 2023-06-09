@@ -1,8 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialSign from "../Shared/SocialSign/SocialSign";
-import { Navigate } from "react-router-dom";
 
 const Login = () => {
   
@@ -17,7 +16,7 @@ const Login = () => {
   const onSubmit = (data) => {
     signIn(data.email, data.password)
       .then((result) => {
-        
+        reset()
       })
       .catch((error) => console.log(error.message));
   };
