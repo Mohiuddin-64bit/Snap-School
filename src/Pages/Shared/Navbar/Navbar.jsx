@@ -12,14 +12,14 @@ const Navbar = () => {
   const menuOptions = (
     <>
       <li>
-        <Link>Home</Link>
+        <Link to='/'>Home</Link>
       </li>
 
       <li>
-        <Link>Instructors</Link>
+        <Link to='/instructor'>Instructors</Link>
       </li>
       <li>
-        <Link>Classes</Link>
+        <Link to='classes'>Classes</Link>
       </li>
       <li>
         <Link>Dashboard </Link>

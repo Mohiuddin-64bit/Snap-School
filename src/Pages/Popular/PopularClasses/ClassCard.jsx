@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const ClassCard = ({ classes }) => {
   const { image, instructor, name, availableSeats } = classes;
@@ -24,26 +24,6 @@ const ClassCard = ({ classes }) => {
               Enrolled Students: {classes.enrolledStudents}
             </p>
             <p className="text-base font-semibold">Price: ${classes.price}</p>
-            <div className="card-actions justify-end">
-              {user ? (
-                <>
-                  {availableSeats > 0 ? (
-                    <button className="btn btn-primary ">Select</button>
-                  ) : (
-                    <button className="btn bg-gray-300 text-white btn-disabled">
-                      Select
-                    </button>
-                  )}
-                </>
-              ) : (
-                <>
-                  {" "}
-                  <button className="btn bg-gray-300 text-white btn-disabled">
-                    Select
-                  </button>
-                </>
-              )}
-            </div>
           </div>
         </div>
       </div>

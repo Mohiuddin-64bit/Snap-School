@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../Shared/SectionTitle/SectionTitle";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import axios from "axios";
 import TeacherCard from "./TeacherCard";
 

@@ -1,24 +1,24 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialSign from "../Shared/SocialSign/SocialSign";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
+  
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const { signIn, user } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     signIn(data.email, data.password)
-      .then((result) => console.log(result))
+      .then((result) => {
+        
+      })
       .catch((error) => console.log(error.message));
   };
   return (

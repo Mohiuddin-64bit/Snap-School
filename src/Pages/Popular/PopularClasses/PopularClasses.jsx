@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import SectionTitle from "../Shared/SectionTitle/SectionTitle";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import ClassCard from "./ClassCard";
 
 const PopularClasses = () => {

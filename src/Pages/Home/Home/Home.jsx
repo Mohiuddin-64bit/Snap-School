@@ -1,5 +1,5 @@
-import PopularClasses from "../../PopularClasses/PopularClasses";
-import PopularTeacher from "../../PopularTeacher/PopularTeacher";
+import PopularClasses from "../../Popular/PopularClasses/PopularClasses";
+import PopularTeacher from "../../Popular/PopularTeacher/PopularTeacher";
 import Banner from "../Banner/Banner";
 
 const Home = () => {
