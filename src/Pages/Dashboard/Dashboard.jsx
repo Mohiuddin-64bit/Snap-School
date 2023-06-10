@@ -1,5 +1,5 @@
 import {  NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaBook, FaSchool, FaHistory, FaPaypal, FaMoneyCheck } from 'react-icons/fa';
+import { FaHome, FaBook, FaSchool,FaMoneyCheck } from 'react-icons/fa';
 const Dashboard = () => {
   return (
     <div>
@@ -14,7 +14,7 @@ const Dashboard = () => {
             Open drawer
           </label>
         </div>
-        <div className="drawer-side bg-[#D1A054]">
+        <div className="drawer-side bg-blue-400">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80">
           <h3 className="text-2xl font-semibold my-12 ">Student Dashboard</h3>

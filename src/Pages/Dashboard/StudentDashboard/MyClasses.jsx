@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaMoneyBillWave, FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyClasses = () => {
   const [cls, setCls] = useState([]);
@@ -15,9 +16,35 @@ const MyClasses = () => {
       });
   }, [user]);
 
+  const handleDelete = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:5000/selectedClass/${item._id}`)
+          .then((data) => {
+            if (data.data.deletedCount > 0) {
+              setCls((prevCls) =>
+                prevCls.filter((clsItem) => clsItem._id !== item._id)
+              );
+
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
+
   return (
-    <div>
-      <div className="overflow-x-auto w-full">
+    <div className="w-full">
+      <div className="overflow-x-auto w-full ">
         <table className="table w-full">
           {/* head */}
           <thead>
@@ -47,7 +74,13 @@ const MyClasses = () => {
                 <td className="text-end">${item.price}</td>
                 <td className="text-end">${item.instructor}</td>
                 <td>
-                  <button className="btn btn-ghost bg-red-600  text-white">
+                  <button className="btn btn-ghost bg-blue-500 mr-3 text-white">
+                    <FaMoneyBillWave></FaMoneyBillWave>Pay
+                  </button>
+                  <button
+                    onClick={() => handleDelete(item)}
+                    className="btn btn-ghost bg-orange-600  text-white"
+                  >
                     <FaTrashAlt></FaTrashAlt>
                   </button>
                 </td>
