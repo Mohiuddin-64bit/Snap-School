@@ -1,10 +1,6 @@
-import { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
 
 const ClassCard = ({ classes }) => {
-  const { image, instructor, name, availableSeats } = classes;
-  const { user } = useContext(AuthContext);
-
+  const { image, instructor, name } = classes;
   return (
     <div>
       <div key={classes._id}>

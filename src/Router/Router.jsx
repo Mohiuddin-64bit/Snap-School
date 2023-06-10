@@ -4,7 +4,6 @@ import Home from "../Pages/Home/Home/Home";
 import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import PopularClasses from "../Pages/Popular/PopularClasses/PopularClasses";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard";
 import InstructorDashboard from "../Pages/Dashboard/InstructorDashboard";

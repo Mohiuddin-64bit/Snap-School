@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
-import ClassCard from "./ClassCard";
+import PopularClassCard from '../PopularClasses/PopularClassCard'
 
 const PopularClasses = () => {
   const [popularClass, setPopularClasses] = useState([]);
@@ -26,7 +26,7 @@ const PopularClasses = () => {
       ></SectionTitle>
       <div className="grid lg:grid-cols-3 gap-4 mx-auto container ">
         {popularClass.map((classes) => (
-          <ClassCard key={classes._id} classes={classes}></ClassCard>
+          <PopularClassCard key={classes._id} classes={classes}></PopularClassCard>
         ))}
       </div>
     </>
