@@ -19,7 +19,7 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80">
           <h3 className="text-2xl font-semibold my-12 ">Student Dashboard</h3>
             <li>
-              <NavLink to="/dashboard/home">
+              <NavLink to="/dashboard/myClasses">
                 <FaSchool></FaSchool> My Selected Classes
               </NavLink>
             </li>
