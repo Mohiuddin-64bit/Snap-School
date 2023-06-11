@@ -15,7 +15,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     signIn(data.email, data.password)
-      .then((result) => {
+      .then(() => {
         reset()
       })
       .catch((error) => console.log(error.message));

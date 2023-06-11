@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link to='classes'>Classes</Link>
       </li>
       <li>
-        <Link to='/dashboard/myClasses'>Dashboard </Link>
+        <Link to='/dashboard'>Dashboard </Link>
       </li>
       <li>
         <Link to="/signup">Signup </Link>

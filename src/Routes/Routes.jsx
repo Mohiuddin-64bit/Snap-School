@@ -5,13 +5,11 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Dashboard from "../Pages/Dashboard/Dashboard";
-import StudentDashboard from "../Pages/Dashboard/StudentDashboard";
-import InstructorDashboard from "../Pages/Dashboard/InstructorDashboard";
-import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
-import Classes from "../Pages/Classes/Classes";
 import Instructor from "../Pages/Instructor/Instructor";
 import MyClasses from "../Pages/Dashboard/StudentDashboard/MyClasses";
-import PrivateRoute from "./PrivateRouter";
+import PrivateRoute from "./PrivateRoute";
+import Classes from "../Pages/Classes/Classes";
+import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -28,26 +26,22 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
-        path: 'myClasses',
-        element: <MyClasses></MyClasses>
-      }, 
-      {
-        path: 'studentDashboard',
-        element: <StudentDashboard></StudentDashboard>
+        path: "myClasses",
+        element: <MyClasses></MyClasses>,
       },
       {
-        path: 'instructorDashboard',
-        element: <InstructorDashboard></InstructorDashboard>
+        path: "manageUsers",
+        element: <ManageUsers></ManageUsers>,
       },
-      {
-        path: "adminDashboard",
-        element: <AdminDashboard></AdminDashboard>
-      }
-    ]
+    ],
   },
 ]);
 

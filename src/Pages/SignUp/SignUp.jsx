@@ -20,7 +20,7 @@ const SignUp = () => {
       console.log(loggedUser)
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          const saveUser = {name: data.name, email: data.email}
+          const saveUser = {name: data.name, email: data.email, role: 'student'}
           axios.post('http://localhost:5000/users', saveUser).then(res => {if(res.data.insertedId){
             Swal.fire("SignUp!", "Your Account Created Successfully", "success");
           }})
