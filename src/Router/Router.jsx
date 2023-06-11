@@ -11,6 +11,7 @@ import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import Classes from "../Pages/Classes/Classes";
 import Instructor from "../Pages/Instructor/Instructor";
 import MyClasses from "../Pages/Dashboard/StudentDashboard/MyClasses";
+import PrivateRoute from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -27,13 +28,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     errorElement: <ErrorPage />,
     children: [
       {
         path: 'myClasses',
         element: <MyClasses></MyClasses>
-      },
+      }, 
       {
         path: 'studentDashboard',
         element: <StudentDashboard></StudentDashboard>

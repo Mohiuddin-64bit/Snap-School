@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialSign from "../Shared/SocialSign/SocialSign";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
@@ -18,7 +20,10 @@ const SignUp = () => {
       console.log(loggedUser)
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-
+          const saveUser = {name: data.name, email: data.email}
+          axios.post('http://localhost:5000/users', saveUser).then(res => {if(res.data.insertedId){
+            Swal.fire("SignUp!", "Your Account Created Successfully", "success");
+          }})
         })
         .catch((error) => {
           console.log(error.message);
