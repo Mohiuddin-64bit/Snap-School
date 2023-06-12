@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -25,6 +26,7 @@ const ManageUsers = () => {
         }
       });
   };
+
   const handleMakeInstructor = (user) => {
     fetch(`http://localhost:5000/users/instructor/${user._id}`, {
       method: "PATCH",
@@ -42,7 +44,17 @@ const ManageUsers = () => {
         }
       });
   };
-  console.log(users);
+
+  const handleDelete = (user) => {
+    axios.delete(`http://localhost:5000/users/${user._id}`).then(() => {
+      refetch();
+      Swal.fire(
+        "Deleted!",
+        "User Account Deleted Successfully",
+        "success"
+      );
+    });
+  };
   return (
     <div className="w-full">
       <Helmet>
@@ -108,7 +120,10 @@ const ManageUsers = () => {
                   )}
                 </td>
                 <td>
-                  <button className="btn btn-ghost bg-red-600  text-white">
+                  <button
+                    onClick={() => handleDelete(user)}
+                    className="btn btn-ghost bg-red-600  text-white"
+                  >
                     <FaTrashAlt></FaTrashAlt>
                   </button>
                 </td>

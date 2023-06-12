@@ -1,6 +1,35 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaBook, FaSchool, FaMoneyCheck, FaTools, FaUsers } from "react-icons/fa";
+import {
+  FaHome,
+  FaBook,
+  FaSchool,
+  FaMoneyCheck,
+  FaTools,
+  FaUsers,
+} from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import axios from "axios";
+import { useEffect, useState } from "react";
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/users?email=${user.email}`)
+      .then(res => {
+        const data = res.data;
+        console.log(data);
+        setUsers(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [user]);
+
+
+
   const isAdmin = true;
   return (
     <div>
@@ -18,10 +47,11 @@ const Dashboard = () => {
         <div className="drawer-side bg-blue-400">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80">
-            
             {isAdmin ? (
               <>
-              <h3 className="text-2xl font-semibold my-12 ">Admin Dashboard</h3>
+                <h3 className="text-2xl font-semibold my-12 ">
+                  Admin Dashboard
+                </h3>
                 <li>
                   <NavLink to="/dashboard/manageClasses">
                     <FaTools></FaTools> Manage Classes
@@ -35,7 +65,9 @@ const Dashboard = () => {
               </>
             ) : (
               <>
-              <h3 className="text-2xl font-semibold my-12 ">Student Dashboard</h3>
+                <h3 className="text-2xl font-semibold my-12 ">
+                  Student Dashboard
+                </h3>
                 <li>
                   <NavLink to="/dashboard/myClasses">
                     <FaSchool></FaSchool> My Selected Classes
