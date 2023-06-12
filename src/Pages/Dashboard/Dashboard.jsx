@@ -17,20 +17,18 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users?email=${user.email}`)
-      .then(res => {
+      .get(`http://localhost:5000/usersE?email=${user.email}`)
+      .then((res) => {
         const data = res.data;
-        console.log(data);
-        setUsers(data);
+        console.log();
+        setUsers(data[0].role);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }, [user]);
 
 
-
-  const isAdmin = true;
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -47,7 +45,7 @@ const Dashboard = () => {
         <div className="drawer-side bg-blue-400">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80">
-            {isAdmin ? (
+            {users === "admin" ? (
               <>
                 <h3 className="text-2xl font-semibold my-12 ">
                   Admin Dashboard
@@ -60,6 +58,22 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/manageUsers">
                     <FaUsers></FaUsers> Manage Users
+                  </NavLink>
+                </li>
+              </>
+            ) : users === "instructor" ? (
+              <>
+                <h3 className="text-2xl font-semibold my-12 ">
+                  Instructor Dashboard
+                </h3>
+                <li>
+                  <NavLink to="/dashboard/">
+                    <FaSchool></FaSchool> Add A Class
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/">
+                    <FaBook></FaBook> My Classes
                   </NavLink>
                 </li>
               </>

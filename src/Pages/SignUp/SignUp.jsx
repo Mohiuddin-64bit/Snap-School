@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -7,6 +7,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
+  const [error, setError] = useState([])
   const {
     register,
     handleSubmit,
@@ -26,9 +27,9 @@ const SignUp = () => {
           }})
         })
         .catch((error) => {
-          console.log(error.message);
+          setError(error.message);
         });
-    });
+    }). catch(error => setError(error.message))
   };
 
   return (
@@ -125,6 +126,7 @@ const SignUp = () => {
               value="Sign Up"
             />
           </div>
+          <p><span className="text-red-500 text-center my-12">{error}</span></p>
         </form>
         <SocialSign></SocialSign>
         <p>

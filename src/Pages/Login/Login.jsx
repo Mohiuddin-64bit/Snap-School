@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialSign from "../Shared/SocialSign/SocialSign";
 
 const Login = () => {
-  
+  const [error, setError] = useState([])
   const {
     register,
     handleSubmit,
@@ -18,7 +18,7 @@ const Login = () => {
       .then(() => {
         reset()
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => setError(error.message));
   };
   return (
     <div className="flex justify-center items-center h-screen">
@@ -85,6 +85,7 @@ const Login = () => {
               value="Login"
             />
           </div>
+          <p><span className="text-red-500 text-center my-12">{error}</span></p>
         </form>
         <SocialSign></SocialSign>
       </div>
