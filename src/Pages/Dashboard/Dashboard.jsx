@@ -67,7 +67,7 @@ const Dashboard = () => {
                   Instructor Dashboard
                 </h3>
                 <li>
-                  <NavLink to="/dashboard/">
+                  <NavLink to="/dashboard/addAClass">
                     <FaSchool></FaSchool> Add A Class
                   </NavLink>
                 </li>
