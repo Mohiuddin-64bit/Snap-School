@@ -20,7 +20,7 @@ const AddAClass = () => {
     console.log(data);
     const formData = new FormData();
     formData.append("image", data.image[0]);
-    const { name, instructorName, email, number, Price } = data;
+    const { name, instructorName, email, number, price } = data;
     
     axios.post(image_hosting_url, formData).then((res) => {
       const imgRes = res.data;
@@ -31,8 +31,9 @@ const AddAClass = () => {
           email,
           instructorName,
           availableSeats: number,
-          Price: parseFloat(Price),
+          price: parseFloat(price),
           image: imgURL,
+          status: 'Pending'
         };
 
         console.log(newItem);
@@ -128,8 +129,8 @@ const AddAClass = () => {
             </label>
             <input
               type="text"
-              {...register("Price", { required: true })}
-              name="Price"
+              {...register("price", { required: true })}
+              name="price"
               placeholder="Price"
               className="input input-bordered"
             />

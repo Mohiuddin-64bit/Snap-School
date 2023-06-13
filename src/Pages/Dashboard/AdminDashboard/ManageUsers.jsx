@@ -15,6 +15,7 @@ const ManageUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         if (data.modifiedCount) {
           refetch();
           Swal.fire(
@@ -126,6 +127,7 @@ const ManageUsers = () => {
                   >
                     <FaTrashAlt></FaTrashAlt>
                   </button>
+                  
                 </td>
               </tr>
             ))}

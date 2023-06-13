@@ -1,53 +1,65 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FaEdit, FaSpeakap, FaTeamspeak} from "react-icons/fa";
 
 const MyClasses = () => {
-  const [data, setData] = useState([]);
+  const [datas, setDatas] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/allClass").then((res) => {
       const data = res.data;
-      setData(data);
+      setDatas(data);
     });
   }, []);
-  console.log(data)
+  console.log(datas);
   return (
-    <div className="overflow-x-auto">
-      <table className="table w-full">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Instructor Name</th>
-            <th>Price</th>
-            <th>Favorite Color</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((addClasses) => {
+    <div className="w-full">
+      <div className="overflow-x-auto w-full ">
+        <table className="table w-full">
+          {/* head */}
+          <thead>
             <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div>
-                    <div className="font-bold">{addClasses.name}</div>
+              <th>No</th>
+              <th></th>
+              <th>Course Name</th>
+              <th>Instructor</th>
+              <th>Available Seats</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>FeedBack</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {datas.map((item, index) => (
+              <tr key={item._id}>
+                <td>{index + 1}</td>
+                <td>
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img
+                        src={item.image}
+                        alt="Avatar Tailwind CSS Component"
+                      />
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span className="badge badge-ghost badge-sm">
-                  Desktop Support Technician
-                </span>
-              </td>
-              <td>Purple</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">details</button>
-              </th>
-            </tr>;
-          })}
-        </tbody>
-      </table>
+                </td>
+                <td>{item.name}</td>
+                <td>{item.instructorName}</td>
+                <td className="">{item.availableSeats}</td>
+                <td>${item.price}</td>
+                <td>{item.status}</td>
+
+                <td>
+
+                  <button className="btn btn-ghost bg-gray-900 text-white">
+                    <FaEdit></FaEdit>
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
