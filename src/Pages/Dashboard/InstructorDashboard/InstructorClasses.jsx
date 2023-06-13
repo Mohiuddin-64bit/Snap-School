@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaEdit, FaSpeakap, FaTeamspeak} from "react-icons/fa";
+import { FaEdit} from "react-icons/fa";
 
 const MyClasses = () => {
   const [datas, setDatas] = useState([]);
@@ -10,7 +10,6 @@ const MyClasses = () => {
       setDatas(data);
     });
   }, []);
-  console.log(datas);
   return (
     <div className="w-full">
       <div className="overflow-x-auto w-full ">

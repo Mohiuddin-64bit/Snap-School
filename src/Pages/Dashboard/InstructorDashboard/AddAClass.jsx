@@ -21,7 +21,7 @@ const AddAClass = () => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
     const { name, instructorName, email, number, price } = data;
-    
+
     axios.post(image_hosting_url, formData).then((res) => {
       const imgRes = res.data;
       if (imgRes.success) {
@@ -33,25 +33,22 @@ const AddAClass = () => {
           availableSeats: number,
           price: parseFloat(price),
           image: imgURL,
-          status: 'Pending'
+          status: "Pending",
         };
 
         console.log(newItem);
         axios
-      .post("http://localhost:5000/allClass", newItem)
-      .then((response) => {
-        console.log(response.data);
-        Swal.fire("Class Added", "Your Class Add Successfully", "success");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+          .post("http://localhost:5000/allClass", newItem)
+          .then((response) => {
+            console.log(response.data);
+            Swal.fire("Class Added", "Your Class Add Successfully", "success");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }
-      
     });
-
-    
-    // reset();
+    reset();
   };
 
   return (

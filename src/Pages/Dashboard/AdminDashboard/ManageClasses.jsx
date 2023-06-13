@@ -33,7 +33,7 @@ const ManageClasses = () => {
       .then((data) => {
         console.log(data)
         if (data.modifiedCount) {
-          Swal.fire("Approved!", "Class Is Approved", "success");
+          Swal.fire("Denied!", "Class Is Denied", "success");
           console.log(data);
         }
       });
@@ -79,18 +79,46 @@ const ManageClasses = () => {
                   <td>${item.price}</td>
                   <td>{item.status}</td>
                   <td>
-                    <button
-                      onClick={() => handleApproved(item._id)}
-                      className="btn btn-ghost bg-blue-300 text-black"
-                    >
-                      Approved
-                    </button>
-                    <button onClick={() => handleDenied(item._id)} className="btn btn-ghost mx-4 bg-blue-300 text-black">
-                      Denied
-                    </button>
-                    <button className="btn btn-ghost bg-blue-300 text-black">
-                      Feedback
-                    </button>
+                  {item.status === "Approved" ? (
+                    <div className="flex items-center gap-3">
+                      <button className="btn btn-ghost btn-disabled text-black bg-slate-300">
+                        Approved
+                      </button>
+                      <button
+                        onClick={() => handleDenied(item._id)}
+                        className="btn btn-ghost bg-blue-600 text-white"
+                      >
+                        Denied
+                      </button>
+                    </div>
+                  ) : item.status === "Pending" ? (
+                    <div className="flex items-center gap-3">
+                      <button onClick={() => handleApproved(item._id)} className="btn btn-ghost btn-disabled text-black bg-slate-300">
+                        Approved
+                      </button>
+                      <button
+                        
+                        className="btn btn-ghost btn-disabled bg-orange-600 text-white"
+                      >
+                        Denied
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => handleApproved(item._id)}
+                        className="btn btn-ghost mr-3 bg-orange-600 text-white"
+                      >
+                        Approved
+                      </button>
+                      <button
+                        onClick={() => handleDenied(item._id)}
+                        className="btn btn-ghost bg-blue-600 text-white"
+                      >
+                        Denied
+                      </button>
+                    </>
+                  )}
                   </td>
                 </tr>
               ))}

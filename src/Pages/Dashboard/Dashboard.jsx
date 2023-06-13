@@ -104,13 +104,7 @@ const Dashboard = () => {
             <li>
               <NavLink to="/">
                 <FaHome></FaHome> Home
-              </NavLink>{" "}
-            </li>
-            <li>
-              <NavLink to="/menu"> Our Menu</NavLink>
-            </li>
-            <li>
-              <NavLink to="/order/salad">Order Food</NavLink>
+              </NavLink>
             </li>
           </ul>
         </div>
