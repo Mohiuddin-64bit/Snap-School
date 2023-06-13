@@ -4,7 +4,12 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import SocialSign from "../Shared/SocialSign/SocialSign";
 
 const Login = () => {
-  const [error, setError] = useState([])
+  const [error, setError] = useState([]);
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const {
     register,
     handleSubmit,
@@ -16,7 +21,7 @@ const Login = () => {
   const onSubmit = (data) => {
     signIn(data.email, data.password)
       .then(() => {
-        reset()
+        reset();
       })
       .catch((error) => setError(error.message));
   };
@@ -41,42 +46,93 @@ const Login = () => {
             )}
           </div>
           <div className="form-control">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
-            <input
-              type="password"
-              {...register("password", {
-                required: true,
-                minLength: 6,
-                maxLength: 20,
-                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-              })}
-              placeholder="password"
-              className="input input-bordered"
-            />
-            {errors.password?.type === "required" && (
-              <p className="text-red-600">Password is required</p>
+            {showPassword ? (
+              <>
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+
+                <input
+                  type="text"
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                  })}
+                  placeholder="password"
+                  className="input input-bordered"
+                />
+                {errors.password?.type === "required" && (
+                  <p className="text-red-600">Password is required</p>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <p className="text-red-600">Password must be 6 characters</p>
+                )}
+                {errors.password?.type === "maxLength" && (
+                  <p className="text-red-600">
+                    Password must be less than 20 characters
+                  </p>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <p className="text-red-600">
+                    Password must have one Uppercase one lower case, one number
+                    and one special character.
+                  </p>
+                )}
+                <label className="label">
+                  <p
+                    onClick={togglePasswordVisibility}
+                    className="label-text-alt link link-hover"
+                  >
+                    Hide Password
+                  </p>
+                </label>
+              </>
+            ) : (
+              <>
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+
+                <input
+                  type="password"
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                  })}
+                  placeholder="password"
+                  className="input input-bordered"
+                />
+                {errors.password?.type === "required" && (
+                  <p className="text-red-600">Password is required</p>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <p className="text-red-600">Password must be 6 characters</p>
+                )}
+                {errors.password?.type === "maxLength" && (
+                  <p className="text-red-600">
+                    Password must be less than 20 characters
+                  </p>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <p className="text-red-600">
+                    Password must have one Uppercase one lower case, one number
+                    and one special character.
+                  </p>
+                )}
+                <label className="label">
+                  <p
+                    onClick={togglePasswordVisibility}
+                    className="label-text-alt link link-hover"
+                  >
+                    Show Password
+                  </p>
+                </label>
+              </>
             )}
-            {errors.password?.type === "minLength" && (
-              <p className="text-red-600">Password must be 6 characters</p>
-            )}
-            {errors.password?.type === "maxLength" && (
-              <p className="text-red-600">
-                Password must be less than 20 characters
-              </p>
-            )}
-            {errors.password?.type === "pattern" && (
-              <p className="text-red-600">
-                Password must have one Uppercase one lower case, one number and
-                one special character.
-              </p>
-            )}
-            <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
-                Forgot password?
-              </a>
-            </label>
           </div>
           <div className="form-control mt-6">
             <input
@@ -85,7 +141,9 @@ const Login = () => {
               value="Login"
             />
           </div>
-          <p><span className="text-red-500 text-center my-12">{error}</span></p>
+          <p>
+            <span className="text-red-500 text-center my-12">{error}</span>
+          </p>
         </form>
         <SocialSign></SocialSign>
       </div>
