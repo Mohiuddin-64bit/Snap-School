@@ -8,7 +8,7 @@ const ClassesCard = ({ cl }) => {
   const {name, instructor, description, price, _id, image} = cl
 
   const handleSelect = (item) => {
-    if (user && user.email) {
+    if (user) {
       const orderCourse = {courseId: _id, name, image, instructor, description, price, email: user.email}
       axios
         .post("http://localhost:5000/selectedClass", orderCourse)

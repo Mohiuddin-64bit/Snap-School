@@ -20,31 +20,36 @@ const AddAClass = () => {
     console.log(data);
     const formData = new FormData();
     formData.append("image", data.image[0]);
-    const { name, email, availableSeats, price } = data;
+    const { name, instructorName, email, number, Price } = data;
+    
+    axios.post(image_hosting_url, formData).then((res) => {
+      const imgRes = res.data;
+      if (imgRes.success) {
+        const imgURL = imgRes.data.display_url;
+        const newItem = {
+          name,
+          email,
+          instructorName,
+          availableSeats: number,
+          Price: parseFloat(Price),
+          image: imgURL,
+        };
 
-    axios
-      .post("http://localhost:5000/allClass", data)
+        console.log(newItem);
+        axios
+      .post("http://localhost:5000/allClass", newItem)
       .then((response) => {
         console.log(response.data);
-        axios.post(image_hosting_url, formData).then((res) => {
-          const imgRes = res.data;
-          if (imgRes.success) {
-            const imgURL = imgRes.data.display_url;
-            const newItem = {
-              name,
-              email,
-              availableSeats,
-              price,
-              image: imgURL,
-            };
-            console.log(newItem);
-          }
-        });
         Swal.fire("Class Added", "Your Class Add Successfully", "success");
       })
       .catch((error) => {
         console.error(error);
       });
+      }
+      
+    });
+
+    
     // reset();
   };
 
@@ -58,7 +63,7 @@ const AddAClass = () => {
               <span className="label-text">Class Name</span>
             </label>
             <input
-              type="name"
+              type="text"
               {...register("name", { required: true })}
               name="name"
               placeholder="Class Name"
@@ -84,8 +89,8 @@ const AddAClass = () => {
                 type="text"
                 readOnly
                 defaultValue={user.displayName}
-                {...register("name", { required: false })}
-                name="name"
+                {...register("instructorName", { required: false })}
+                name="instructorName"
                 placeholder="Instructor Name"
                 className="input"
               />
