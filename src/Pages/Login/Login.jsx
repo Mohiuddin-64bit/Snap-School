@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialSign from "../Shared/SocialSign/SocialSign";
+import { FaEye } from "react-icons/fa";
 
 const Login = () => {
   const [error, setError] = useState([]);
@@ -83,9 +84,9 @@ const Login = () => {
                 <label className="label">
                   <p
                     onClick={togglePasswordVisibility}
-                    className="label-text-alt link link-hover"
+                    className="label-text-alt link link-hover flex items-center gap-3"
                   >
-                    Hide Password
+                  <FaEye></FaEye>  Hide Password
                   </p>
                 </label>
               </>
@@ -126,9 +127,9 @@ const Login = () => {
                 <label className="label">
                   <p
                     onClick={togglePasswordVisibility}
-                    className="label-text-alt link link-hover"
+                    className="label-text-alt link link-hover flex items-center gap-3"
                   >
-                    Show Password
+                    <FaEye></FaEye> Show Password
                   </p>
                 </label>
               </>

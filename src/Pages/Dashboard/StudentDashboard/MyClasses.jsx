@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaMoneyBillWave, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   const [cls, setCls] = useState([]);
@@ -74,9 +75,11 @@ const MyClasses = () => {
                 <td className="text-end">${item.price}</td>
                 <td className="text-end">${item.instructor}</td>
                 <td>
-                  <button className="btn btn-ghost bg-blue-500 mr-3 text-white">
-                    <FaMoneyBillWave></FaMoneyBillWave>Pay
-                  </button>
+                  <Link to="../payment">
+                    <button className="btn btn-ghost bg-blue-500 mr-3 text-white">
+                      <FaMoneyBillWave></FaMoneyBillWave>Pay
+                    </button>
+                  </Link>
                   <button
                     onClick={() => handleDelete(item)}
                     className="btn btn-ghost bg-orange-600  text-white"

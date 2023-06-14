@@ -16,6 +16,7 @@ const Classes = () => {
         console.error(error);
       });
   }, []);
+  
   return (
     <div className="container mx-auto mt-12">
       {classes.map((cl) => (
