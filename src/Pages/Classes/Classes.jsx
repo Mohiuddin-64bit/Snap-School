@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import ClassesCard from "./ClassesCard";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
@@ -19,6 +20,7 @@ const Classes = () => {
   
   return (
     <div className="container mx-auto mt-12">
+      <Helmet title="Snap School | Classes"></Helmet>
       {classes.map((cl) => (
         <ClassesCard key={cl._id} cl={cl}></ClassesCard>
       ))}

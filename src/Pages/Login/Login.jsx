@@ -5,6 +5,7 @@ import SocialSign from "../Shared/SocialSign/SocialSign";
 import { FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [error, setError] = useState([]);
@@ -33,6 +34,7 @@ const Login = () => {
   };
   return (
     <div className="flex justify-center items-center h-screen">
+      <Helmet title="Snap School | Login"></Helmet>
       <div className="max-w-md w-full  mx-auto p-8 border border-gray-300 shadow-lg rounded-lg">
         <h2 className="text-3xl font-bold mb-4 text-center">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="card-body">

@@ -5,6 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import SocialSign from "../Shared/SocialSign/SocialSign";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   const [error, setError] = useState([])
@@ -34,6 +35,7 @@ const SignUp = () => {
 
   return (
     <div className="flex justify-center items-center h-screen">
+      <Helmet title="Snap School | SignUp"></Helmet>
       <div className="max-w-md w-full  mx-auto p-8 border border-gray-300 shadow-lg rounded-lg">
         <h2 className="text-3xl font-bold mb-4 text-center">Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
