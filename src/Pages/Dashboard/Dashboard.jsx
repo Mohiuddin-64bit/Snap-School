@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/usersE?email=${user.email}`)
+      .get(`https://snap-school-server-kappa.vercel.app/usersE?email=${user.email}`)
       .then((res) => {
         const data = res.data;
         console.log();

@@ -6,14 +6,14 @@ import Swal from "sweetalert2";
 const ManageClasses = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/allClass").then((res) => {
+    axios.get("https://snap-school-server-kappa.vercel.app/allClass").then((res) => {
       const data = res.data;
       setDatas(data);
     });
   }, [datas]);
 
   const handleApproved = (id) => {
-    fetch(`http://localhost:5000/allClass/approved/${id}`, {
+    fetch(`https://snap-school-server-kappa.vercel.app/allClass/approved/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -26,7 +26,7 @@ const ManageClasses = () => {
       });
   };
   const handleDenied = (id) => {
-    fetch(`http://localhost:5000/allClass/denied/${id}`, {
+    fetch(`https://snap-school-server-kappa.vercel.app/allClass/denied/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

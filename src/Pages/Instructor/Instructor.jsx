@@ -6,7 +6,7 @@ const Instructor = () => {
   const [instructor, setInstructor] = useState([])
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allInstructor")
+      .get("https://snap-school-server-kappa.vercel.app/allInstructor")
       .then((res) => {
         const data = res.data;
         setInstructor(data);

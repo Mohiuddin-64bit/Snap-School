@@ -3,10 +3,13 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialSign from "../Shared/SocialSign/SocialSign";
 import { FaEye } from "react-icons/fa";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [error, setError] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -22,6 +25,8 @@ const Login = () => {
   const onSubmit = (data) => {
     signIn(data.email, data.password)
       .then(() => {
+        Swal.fire("Login!", "Your Logged In Successfully", "success");
+        navigate("/");
         reset();
       })
       .catch((error) => setError(error.message));
@@ -86,7 +91,7 @@ const Login = () => {
                     onClick={togglePasswordVisibility}
                     className="label-text-alt link link-hover flex items-center gap-3"
                   >
-                  <FaEye></FaEye>  Hide Password
+                    <FaEye></FaEye> Hide Password
                   </p>
                 </label>
               </>
