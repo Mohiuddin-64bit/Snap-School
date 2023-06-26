@@ -10,7 +10,7 @@ const PopularClasses = () => {
 
   useEffect(() => {
     axios
-      .get("https://snap-school-server-kappa.vercel.app/popularClass")
+      .get("http://localhost:5000/popularClass")
       .then((res) => {
         const data = res.data;
         setPopularClasses(data);

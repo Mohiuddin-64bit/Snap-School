@@ -23,7 +23,7 @@ const SignUp = () => {
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           const saveUser = {name: data.name, email: data.email, role: 'student'}
-          axios.post('https://snap-school-server-kappa.vercel.app/users', saveUser).then(res => {if(res.data.insertedId){
+          axios.post('http://localhost:5000/users', saveUser).then(res => {if(res.data.insertedId){
             Swal.fire("SignUp!", "Your Account Created Successfully", "success");
           }})
         })

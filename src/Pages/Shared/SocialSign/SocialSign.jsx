@@ -18,7 +18,7 @@ const SocialSign = () => {
           email: loggedInUser.email,
           role: 'student'
         };
-        axios.post("https://snap-school-server-kappa.vercel.app/users", saveUser).then(() => {
+        axios.post("http://localhost:5000/users", saveUser).then(() => {
           Swal.fire("SignUp!", "Your Account Created Successfully", "success");
           navigate("/");
         });

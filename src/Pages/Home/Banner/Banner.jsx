@@ -23,11 +23,11 @@ const Banner = () => {
             </div>
             <div className="absolute ml-3 w-3/4 transform top-1/3 left-14 text-white text-xl">
               <div>
-                <p className="font-bold text leading-normal text-6xl text-yellow-400">
+                <p className="font-bold text leading-normal text-lg lg:text-6xl text-yellow-400">
                   Unlock Your Potential at our Summer
                   <br /> Camp Learning School
                 </p>
-                <p className="w-2/4">
+                <p className="lg:w-2/4 hidden lg:block">
                   Explore a world of creativity and growth through our
                   specialized classes. Join us for a memorable summer filled
                   with learning, fun, and new friendships. Enroll today and
@@ -51,11 +51,11 @@ const Banner = () => {
             </a>
             <div className="absolute ml-3 w-3/4 transform top-1/3 left-14 text-white text-xl">
               <div>
-                <p className="font-bold text leading-normal text-6xl text-yellow-400">
+                <p className="font-bold text leading-normal text-lg lg:text-6xl text-yellow-400">
                   Unlock Your Potential at our Summer
                   <br /> Camp Learning School
                 </p>
-                <p className="w-2/4">
+                <p className="lg:w-2/4 hidden">
                   Explore a world of creativity and growth through our
                   specialized classes. Join us for a memorable summer filled
                   with learning, fun, and new friendships. Enroll today and
@@ -80,11 +80,11 @@ const Banner = () => {
             </a>
             <div className="absolute ml-3 w-3/4 transform top-1/3 left-14 text-white text-xl">
               <div>
-                <p className="font-bold text leading-normal text-6xl text-yellow-400">
+                <p className="font-bold text leading-normal text-lg lg:text-6xl text-yellow-400">
                   Unlock Your Potential at our Summer
                   <br /> Camp Learning School
                 </p>
-                <p className="w-2/4">
+                <p className="lg:w-2/4 hidden">
                   Explore a world of creativity and growth through our
                   specialized classes. Join us for a memorable summer filled
                   with learning, fun, and new friendships. Enroll today and
@@ -109,11 +109,11 @@ const Banner = () => {
             </a>
             <div className="absolute ml-3 w-3/4 transform top-1/3 left-14 text-white text-xl">
               <div>
-                <p className="font-bold text leading-normal text-6xl text-yellow-400">
+                <p className="font-bold text leading-normal text-lg lg:text-6xl text-yellow-400">
                   Unlock Your Potential at our Summer
                   <br /> Camp Learning School
                 </p>
-                <p className="w-2/4">
+                <p className="lg:w-2/4 hidden">
                   Explore a world of creativity and growth through our
                   specialized classes. Join us for a memorable summer filled
                   with learning, fun, and new friendships. Enroll today and
@@ -138,11 +138,11 @@ const Banner = () => {
             </a>
             <div className="absolute ml-3 w-3/4 transform top-1/3 left-14 text-white text-xl">
               <div>
-                <p className="font-bold text leading-normal text-6xl text-yellow-400">
+                <p className="font-bold text leading-normal text-lg lg:text-6xl text-yellow-400">
                   Unlock Your Potential at our Summer
                   <br /> Camp Learning School
                 </p>
-                <p className="w-2/4">
+                <p className="lg:w-2/4 hidden">
                   Explore a world of creativity and growth through our
                   specialized classes. Join us for a memorable summer filled
                   with learning, fun, and new friendships. Enroll today and
@@ -167,11 +167,11 @@ const Banner = () => {
             </a>
             <div className="absolute ml-3 w-3/4 transform top-1/3 left-14 text-white text-xl">
               <div>
-                <p className="font-bold text leading-normal text-6xl text-yellow-400">
+                <p className="font-bold text leading-normal text-lg lg:text-6xl text-yellow-400">
                   Unlock Your Potential at our Summer
                   <br /> Camp Learning School
                 </p>
-                <p className="w-2/4">
+                <p className="lg:w-2/4 hidden">
                   Explore a world of creativity and growth through our
                   specialized classes. Join us for a memorable summer filled
                   with learning, fun, and new friendships. Enroll today and

@@ -20,7 +20,7 @@ const ClassesCard = ({ cl }) => {
         email: user.email,
       };
       axios
-        .post("https://snap-school-server-kappa.vercel.app/selectedClass", orderCourse)
+        .post("http://localhost:5000/selectedClass", orderCourse)
         .then((res) => {
           if (res.data.insertedId) {
             Swal.fire("Good job!", "Course Selected", "success");

@@ -8,7 +8,7 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
     axios
-      .get("https://snap-school-server-kappa.vercel.app/allClass")
+      .get("http://localhost:5000/allClass")
       .then((res) => {
         const data = res.data;
         setClasses(data);

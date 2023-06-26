@@ -38,7 +38,7 @@ const AddAClass = () => {
 
         console.log(newItem);
         axios
-          .post("https://snap-school-server-kappa.vercel.app/allClass", newItem)
+          .post("http://localhost:5000/allClass", newItem)
           .then((response) => {
             console.log(response.data);
             Swal.fire("Class Added", "Your Class Add Successfully", "success");

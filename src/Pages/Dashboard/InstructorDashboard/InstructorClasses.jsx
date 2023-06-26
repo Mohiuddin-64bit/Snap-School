@@ -5,7 +5,7 @@ import { FaEdit} from "react-icons/fa";
 const MyClasses = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    axios.get("https://snap-school-server-kappa.vercel.app/allClass").then((res) => {
+    axios.get("http://localhost:5000/allClass").then((res) => {
       const data = res.data;
       setDatas(data);
     });
@@ -47,9 +47,8 @@ const MyClasses = () => {
                 <td className="">{item.availableSeats}</td>
                 <td>${item.price}</td>
                 <td>{item.status}</td>
-
+                <td></td>
                 <td>
-
                   <button className="btn btn-ghost bg-gray-900 text-white">
                     <FaEdit></FaEdit>
                   </button>

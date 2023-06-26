@@ -7,7 +7,7 @@ const PopularTeacher = () => {
   const [teachers, setTeachers] = useState([]);
   useEffect(() => {
     axios
-      .get("https://snap-school-server-kappa.vercel.app/popularTeacher")
+      .get("http://localhost:5000/popularTeacher")
       .then((res) => {
         console.log(res.data);
         setTeachers(res.data);

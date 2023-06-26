@@ -10,7 +10,7 @@ const MyClasses = () => {
   const { user } = useContext(AuthContext);
   useEffect(() => {
     axios
-      .get(`https://snap-school-server-kappa.vercel.app/selectedClass?email=${user?.email}`)
+      .get(`http://localhost:5000/selectedClass?email=${user?.email}`)
       .then((res) => {
         setCls(res.data);
         console.log(res.data);
@@ -29,7 +29,7 @@ const MyClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://snap-school-server-kappa.vercel.app/selectedClass/${item._id}`)
+          .delete(`http://localhost:5000/selectedClass/${item._id}`)
           .then((data) => {
             if (data.data.deletedCount > 0) {
               setCls((prevCls) =>

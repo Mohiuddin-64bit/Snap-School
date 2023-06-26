@@ -1,24 +1,32 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaEdit } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { FaArrowRight } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageClasses = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const [datas, setDatas] = useState([]);
+
   useEffect(() => {
-    axios.get("https://snap-school-server-kappa.vercel.app/allClass").then((res) => {
+    axios.get("http://localhost:5000/allClass").then((res) => {
       const data = res.data;
       setDatas(data);
     });
   }, [datas]);
 
   const handleApproved = (id) => {
-    fetch(`https://snap-school-server-kappa.vercel.app/allClass/approved/${id}`, {
+    fetch(`http://localhost:5000/allClass/approved/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.modifiedCount) {
           Swal.fire("Approved!", "Class Is Approved", "success");
           console.log(data);
@@ -26,19 +34,21 @@ const ManageClasses = () => {
       });
   };
   const handleDenied = (id) => {
-    fetch(`https://snap-school-server-kappa.vercel.app/allClass/denied/${id}`, {
+    fetch(`http://localhost:5000/allClass/denied/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.modifiedCount) {
           Swal.fire("Denied!", "Class Is Denied", "success");
           console.log(data);
         }
       });
   };
-
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div>
       <div className="w-full">
@@ -79,46 +89,80 @@ const ManageClasses = () => {
                   <td>${item.price}</td>
                   <td>{item.status}</td>
                   <td>
-                  {item.status === "Approved" ? (
-                    <div className="flex items-center gap-3">
-                      <button className="btn btn-ghost btn-disabled text-black bg-slate-300">
-                        Approved
-                      </button>
-                      <button
-                        onClick={() => handleDenied(item._id)}
-                        className="btn btn-ghost bg-blue-600 text-white"
-                      >
-                        Denied
-                      </button>
-                    </div>
-                  ) : item.status === "Pending" ? (
-                    <div className="flex items-center gap-3">
-                      <button onClick={() => handleApproved(item._id)} className="btn btn-ghost btn-disabled text-black bg-slate-300">
-                        Approved
-                      </button>
-                      <button
-                        
-                        className="btn btn-ghost btn-disabled bg-orange-600 text-white"
-                      >
-                        Denied
-                      </button>
-                    </div>
-                  ) : (
-                    <>
-                      <button
-                        onClick={() => handleApproved(item._id)}
-                        className="btn btn-ghost mr-3 bg-orange-600 text-white"
-                      >
-                        Approved
-                      </button>
-                      <button
-                        onClick={() => handleDenied(item._id)}
-                        className="btn btn-ghost bg-blue-600 text-white"
-                      >
-                        Denied
-                      </button>
-                    </>
-                  )}
+                    {item.status === "Approved" ? (
+                      <div className="flex items-center gap-3">
+                        <button className="btn btn-disabled">Approved</button>
+                        <button
+                          onClick={() => handleDenied(item._id)}
+                          className="btn btn-ghost bg-blue-600 text-white"
+                        >
+                          Denied
+                        </button>
+                      </div>
+                    ) : item.status === "Denied" ? (
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => handleApproved(item._id)}
+                          className="btn btn-ghost bg-blue-600 text-white"
+                        >
+                          Approved
+                        </button>
+                        <button className="btn btn-disabled  bg-slate-300">
+                          Denied
+                        </button>
+                      </div>
+                    ) : item.status === "pending" ? (
+                      <>
+                        <button
+                          onClick={() => handleApproved(item._id)}
+                          className="btn btn-ghost mr-3 bg-orange-600 text-white"
+                        >
+                          Approved
+                        </button>
+                        <button
+                          onClick={() => handleDenied(item._id)}
+                          className="btn btn-ghost bg-blue-600 text-white"
+                        >
+                          Denied
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => handleApproved(item._id)}
+                          className="btn btn-ghost mr-3 bg-orange-600 text-white"
+                        >
+                          Approved
+                        </button>
+                        <button
+                          onClick={() => handleDenied(item._id)}
+                          className="btn btn-ghost bg-blue-600 text-white"
+                        >
+                          Denied
+                        </button>
+                      </>
+                    )}
+                  </td>
+                  <td>
+                    {item.status === "Denied" ? (
+                      <>
+                        <button
+                          className="btn btn-sm btn-primary"
+                          onClick={() => window.my_modal_4.showModal()}
+                        >
+                          FeedBack
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          className="btn btn-sm btn-disabled"
+                          onClick={() => window.my_modal_4.showModal()}
+                        >
+                          FeedBack
+                        </button>
+                      </>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -126,6 +170,32 @@ const ManageClasses = () => {
           </table>
         </div>
       </div>
+      <dialog id="my_modal_4" className="modal">
+        <form
+          onSubmit={() => handleSubmit(onSubmit)}
+          method="dialog"
+          className="modal-box w-11/12 max-w-5xl"
+        >
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              {...register("email", { required: true })}
+              name="email"
+              placeholder="email"
+              className="input input-bordered"
+            />
+            {errors.email && (
+              <span className="text-red-600">Email is required</span>
+            )}
+          </div>
+          <div className="form-control">
+              <button className="btn btn-primary">Send</button>
+          </div>
+        </form>
+      </dialog>
     </div>
   );
 };

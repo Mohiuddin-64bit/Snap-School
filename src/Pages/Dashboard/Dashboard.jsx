@@ -18,7 +18,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get(`https://snap-school-server-kappa.vercel.app/usersE?email=${user.email}`)
+      .get(`http://localhost:5000/usersE?email=${user.email}`)
       .then((res) => {
         const data = res.data;
         console.log();
@@ -46,7 +46,7 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side bg-blue-400">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80">
+          <ul className="menu p-4 w-80 dark:text-white">
             {users === "admin" ? (
               <>
                 <h3 className="text-2xl font-semibold my-12 ">
