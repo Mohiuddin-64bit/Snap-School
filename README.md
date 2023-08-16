@@ -6,11 +6,6 @@ Welcome to the Snap School project! This is a photography website built using Re
 
 You can access the live version of Snap School [here](https://span-school.web.app/).
 
-## Features
-
-- Feature 1: Description of feature 1.
-- Feature 2: Description of feature 2.
-- Feature 3: Description of feature 3.
 
 ## Technologies Used
 
