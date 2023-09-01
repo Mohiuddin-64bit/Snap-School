@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
-import PopularClassCard from '../PopularClasses/PopularClassCard'
+import PopularClassCard from "../PopularClasses/PopularClassCard";
 // import Aos from "aos";
 
 const PopularClasses = () => {
   const [popularClass, setPopularClasses] = useState([]);
-
+  console.log(popularClass);
 
   useEffect(() => {
     axios
@@ -26,10 +26,11 @@ const PopularClasses = () => {
         heading={"Popular Class"}
         subHeading={"All Top Rated Course"}
       ></SectionTitle>
-      <div  className=" grid lg:grid-cols-3 gap-4 mx-auto max-w-screen-2xl ">
-        {popularClass.map((classes) => (
-          <PopularClassCard key={classes._id} classes={classes}></PopularClassCard>
-        ))}
+      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+        <PopularClassCard
+          key={popularClass._id}
+          popularClass={popularClass}
+        ></PopularClassCard>
       </div>
     </>
   );
