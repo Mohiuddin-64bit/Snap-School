@@ -9,7 +9,7 @@ import img6 from "../../../assets/carousel-img/6.jpg";
 
 const Banner = () => {
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
       <div className="carousel w-full ">
         <div id="slide1" className="carousel-item relative w-full">
             <img src={img1} className="w-full" />

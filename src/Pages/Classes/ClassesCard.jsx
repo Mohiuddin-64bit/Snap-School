@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const ClassesCard = ({ cl }) => {
   const { user } = useContext(AuthContext);
   const { name, instructor, description, price, _id, image, status } = cl;
-  const handleSelect = (item) => {
+  const handleSelect = () => {
     if (user) {
       const orderCourse = {
         courseId: _id,
@@ -33,12 +33,12 @@ const ClassesCard = ({ cl }) => {
     <div>
       {status === "Approved" ? (
         <>
-          <div className="card flex items-center gap-3 mb-12 lg:card-side bg-base-100 shadow-xl">
-            <figure>
-              <img src={cl.image} alt="Album" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{cl.name}</h2>
+          <div className="grid grid-cols-2 gap-3 mb-12  bg-base-100 shadow-xl">
+            <div>
+              <img className="w-52" src={cl.image} alt="Album" />
+            </div>
+            <div className="">
+              <h2 className="">{cl.name}</h2>
               <h2 className="text-lg text-gray-500">{cl.instructor}</h2>
               <div className="font-semibold">
                 <p>{cl.description}</p>
