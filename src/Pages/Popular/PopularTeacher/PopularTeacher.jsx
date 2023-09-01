@@ -22,7 +22,7 @@ const PopularTeacher = () => {
         heading={"Popular Instructors"}
         subHeading={"All Best Instructors"}
       ></SectionTitle>
-      <div className="grid lg:grid-cols-3 gap-4 mx-auto container mb-32 ">
+      <div className="grid lg:grid-cols-3 gap-4 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mb-32 ">
         {teachers.map(teacher => <TeacherCard key={teacher._id} teacher={teacher}></TeacherCard>)}
       </div>
     </div>
