@@ -6,8 +6,6 @@ import Swal from "sweetalert2";
 const ClassesCard = ({ cl }) => {
   const { user } = useContext(AuthContext);
   const { name, instructor, description, price, _id, image, status } = cl;
-  console.log(status);
-
   const handleSelect = (item) => {
     if (user) {
       const orderCourse = {

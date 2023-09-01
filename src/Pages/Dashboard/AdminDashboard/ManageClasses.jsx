@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaArrowRight } from "react-icons/fa";
+
 import Swal from "sweetalert2";
 
 const ManageClasses = () => {
@@ -19,6 +19,8 @@ const ManageClasses = () => {
       setDatas(data);
     });
   }, [datas]);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const handleApproved = (id) => {
     fetch(`http://localhost:5000/allClass/approved/${id}`, {
@@ -46,9 +48,21 @@ const ManageClasses = () => {
         }
       });
   };
+
+
   const onSubmit = (data) => {
     console.log(data);
+    // setIsModalOpen(false);
+    reset();
   };
+
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // }
+  // const closeModal = () => {
+  //   setIsModalOpen(false)
+  // }
+
   return (
     <div>
       <div className="w-full">
@@ -172,28 +186,30 @@ const ManageClasses = () => {
       </div>
       <dialog id="my_modal_4" className="modal">
         <form
-          onSubmit={() => handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit)}
           method="dialog"
           className="modal-box w-11/12 max-w-5xl"
         >
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text">Feedback</span>
             </label>
             <input
-              type="email"
-              {...register("email", { required: true })}
-              name="email"
-              placeholder="email"
-              className="input input-bordered"
+              type="text"
+              {...register("feedback", { required: true })}
+              name="feedback"
+              placeholder="Feedback"
+              className="input input-bordered h-[100px]"
             />
-            {errors.email && (
-              <span className="text-red-600">Email is required</span>
+            {errors.feedback && (
+              <span className="text-red-600">Feedback is required</span>
             )}
           </div>
           <div className="form-control">
-              <button className="btn btn-primary">Send</button>
+            <button className="btn btn-primary my-5">Send</button>
+            
           </div>
+            
         </form>
       </dialog>
     </div>

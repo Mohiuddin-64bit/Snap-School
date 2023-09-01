@@ -3,19 +3,30 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaMoneyBillWave, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyClasses = () => {
   const [cls, setCls] = useState([]);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { logOut } = useContext(AuthContext);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/selectedClass?email=${user?.email}`)
+      .get(`http://localhost:5000/selectedClass?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
-        setCls(res.data);
-        console.log(res.data);
+        if (!res.error) {
+          setCls(res.data);
+          console.log(res)
+        } else {
+          navigate('/')
+          
+        }
       });
-  }, [user]);
+  }, [user, navigate]);
 
   const handleDelete = (item) => {
     Swal.fire({

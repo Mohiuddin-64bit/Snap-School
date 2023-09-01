@@ -9,12 +9,11 @@ const PopularTeacher = () => {
     axios
       .get("http://localhost:5000/popularTeacher")
       .then((res) => {
-        console.log(res.data);
         setTeachers(res.data);
       })
       .catch((error) => console.log(error.message));
   }, []);
-  console.log(teachers)
+
 
 
   return (

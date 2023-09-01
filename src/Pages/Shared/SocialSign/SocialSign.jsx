@@ -11,12 +11,13 @@ const SocialSign = () => {
   const handleGoogleSign = () => {
     googleSignIn()
       .then((result) => {
+        navigate("/");
         const loggedInUser = result.user;
         console.log(result.user);
         const saveUser = {
           name: loggedInUser.displayName,
           email: loggedInUser.email,
-          role: 'student'
+          role: "student",
         };
         axios.post("http://localhost:5000/users", saveUser).then(() => {
           Swal.fire("SignUp!", "Your Account Created Successfully", "success");

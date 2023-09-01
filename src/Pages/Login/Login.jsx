@@ -27,7 +27,7 @@ const Login = () => {
     signIn(data.email, data.password)
       .then(() => {
         Swal.fire("Login!", "Your Logged In Successfully", "success");
-        navigate("/");
+        navigate('/')
         reset();
       })
       .catch((error) => setError(error.message));
