@@ -6,7 +6,6 @@ import PopularClassCard from "../PopularClasses/PopularClassCard";
 
 const PopularClasses = () => {
   const [popularClass, setPopularClasses] = useState([]);
-  console.log(popularClass);
 
   useEffect(() => {
     axios

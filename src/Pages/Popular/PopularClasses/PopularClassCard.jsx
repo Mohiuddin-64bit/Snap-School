@@ -1,5 +1,5 @@
 import { MdEventSeat } from "react-icons/Md";
-import { PiStudentFill } from "react-icons/Pi";
+  import { PiStudentFill } from "react-icons/Pi";
 import { BsCashCoin } from "react-icons/Bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,7 +13,7 @@ const PopularClassCard = ({ popularClass }) => {
   return (
     <>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={1}
         spaceBetween={30}
         pagination={{
           clickable: true,
@@ -28,18 +28,18 @@ const PopularClassCard = ({ popularClass }) => {
         className="mySwiper"
       >
         {popularClass.map((classes) => (
-          <SwiperSlide key={classes.id}>
+          <SwiperSlide key={classes._id}>
             <div key={classes._id}>
-              <div className="mx-auto max-w-screen-2xl  shadow-xl aspect-[4/2] w-full relative rounded-t-xl">
+              <div className="mx-auto max-w-screen-2xl text-white bg-white-bg dark:text-gray-300 dark:bg-dark-bg bg-center bg-cover bg-no-repeat  m-9 shadow-xl aspect-[4/2] w-full relative rounded-xl">
                 <img
                   src={classes.image}
                   className="object-cover rounded-t-xl h-full w-full group-hover:scale-110 transition"
                   alt="classes"
                 />
-                <div className="px-3 flex flex-col justify-between ">
+                <div className="px-3 pb-4 flex flex-col justify-between ">
                   <div className="py-2 ">
                     <h2 className="text-xl font-bold">{classes.name}</h2>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-white dark:text-white/80">
                       {classes.instructorName}
                     </p>
                   </div>

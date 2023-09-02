@@ -21,7 +21,7 @@ const Dashboard = () => {
       .get(`http://localhost:5000/usersE?email=${user.email}`)
       .then((res) => {
         const data = res.data;
-        console.log();
+        console.log(data);
         setUsers(data[0].role);
       })
       .catch((error) => {
