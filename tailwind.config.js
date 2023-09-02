@@ -8,6 +8,7 @@ export default {
         'dark-bg': "url('./src/assets/gradient/darkBg.jpg')",
         'white-bg': "url('./src/assets/gradient/whiteBg.jpg')",
         'background': "url('./src/assets/gradient/background.jpg')",
+        'background2': "url('./src/assets/gradient/bg2.jpg')",
         
       }
     },

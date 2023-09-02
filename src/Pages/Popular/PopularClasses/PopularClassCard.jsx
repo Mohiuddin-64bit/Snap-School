@@ -36,7 +36,7 @@ const PopularClassCard = ({ popularClass }) => {
                   className="object-cover rounded-t-xl h-full w-full group-hover:scale-110 transition"
                   alt="classes"
                 />
-                <div className="px-3 pb-4 flex flex-col justify-between ">
+                <div className="px-3 pb-4 flex flex-col justify-between">
                   <div className="py-2 ">
                     <h2 className="text-xl font-bold">{classes.name}</h2>
                     <p className="text-sm text-white dark:text-white/80">

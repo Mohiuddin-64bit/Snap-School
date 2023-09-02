@@ -43,7 +43,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <header className="bg-white dark:bg-gray-900">
+      <header className="bg-white pt-3 dark:bg-gradient-to-r from-[#010010] to-[#0F034B]">
         <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
@@ -112,7 +112,7 @@ const Navbar = () => {
                 <>
                   <div className="sm:flex sm:gap-4">
                     <Link
-                      className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
+                      className="rounded-md px-5 py-2.5 text-sm font-medium bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat  text-white shadow "
                       to="/login"
                     >
                       Login
@@ -120,7 +120,7 @@ const Navbar = () => {
 
                     <div className="hidden sm:flex">
                       <Link
-                        className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                        className="rounded-md bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat text-white px-5 py-2.5 text-sm shadow font-medium "
                         to="/signup"
                       >
                         SignUp
