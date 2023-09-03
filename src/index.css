@@ -9,8 +9,9 @@
   @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }
 .text {
-  @apply text-black dark:text-white
+  @apply text-black dark:text-white/80
 }
+
 .dark_mode_text {
   @apply dark:text-white/80 ;
 }
