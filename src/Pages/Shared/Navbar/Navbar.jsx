@@ -44,7 +44,7 @@ const Navbar = () => {
   return (
     <>
       <header className="bg-white pt-3 dark:bg-gradient-to-r from-[#010010] to-[#0F034B]">
-        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+        <div className="container">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
               <a className="block text-teal-600 dark:text-teal-600" href="/">
@@ -101,7 +101,7 @@ const Navbar = () => {
                 <>
                   {" "}
                   <button
-                    className="rounded-md bg-white-bg bg-cover bg-center bg-no-repeat px-5 py-2.5 text-sm font-medium text-white shadow dark:bg-dark-bg"
+                    className="rounded-md px-5 py-2.5 text-sm font-medium text-white shadow "
                     href="/"
                     onClick={handleLogout}
                   >
@@ -112,7 +112,7 @@ const Navbar = () => {
                 <>
                   <div className="sm:flex sm:gap-4">
                     <Link
-                      className="rounded-md px-5 py-2.5 text-sm font-medium bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat  text-white shadow "
+                      className="rounded-md px-5 py-2.5 text-sm font-medium text-white shadow background hover_bg"
                       to="/login"
                     >
                       Login
@@ -120,7 +120,7 @@ const Navbar = () => {
 
                     <div className="hidden sm:flex">
                       <Link
-                        className="rounded-md bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat text-white px-5 py-2.5 text-sm shadow font-medium "
+                        className="rounded-md px-5 py-2.5 text-sm font-medium text-white shadow background hover_bg"
                         to="/signup"
                       >
                         SignUp

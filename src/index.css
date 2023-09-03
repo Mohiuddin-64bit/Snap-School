@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* My custom CSS */
+
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+.text {
+  @apply text-black dark:text-white
+}
+.dark_mode_text {
+  @apply dark:text-white/80 ;
+}
+.light_mode_text {
+  @apply text-black
+}
+.hover_bg {
+  @apply hover:bg-dark-bg transition-all dark:hover:bg-white-bg
+}
+.background {
+  @apply bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat
+}
+.container{
+  @apply mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8
+}

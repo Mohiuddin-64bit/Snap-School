@@ -1,5 +1,5 @@
 import { MdEventSeat } from "react-icons/Md";
-  import { PiStudentFill } from "react-icons/Pi";
+import { PiStudentFill } from "react-icons/Pi";
 import { BsCashCoin } from "react-icons/Bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -30,7 +30,7 @@ const PopularClassCard = ({ popularClass }) => {
         {popularClass.map((classes) => (
           <SwiperSlide key={classes._id}>
             <div key={classes._id}>
-              <div className="mx-auto max-w-screen-2xl text-white bg-white-bg dark:text-gray-300 dark:bg-dark-bg bg-center bg-cover bg-no-repeat  m-9 shadow-xl aspect-[4/2] w-full relative rounded-xl">
+              <div className="mx-auto max-w-screen-2xl text-white background hover_bg dark:text-gray-300 m-9 shadow-xl aspect-[4/2] w-full relative rounded-xl">
                 <img
                   src={classes.image}
                   className="object-cover rounded-t-xl h-full w-full group-hover:scale-110 transition"

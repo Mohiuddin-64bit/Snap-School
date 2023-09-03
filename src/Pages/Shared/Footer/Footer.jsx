@@ -3,8 +3,8 @@
 const Footer = () => {
   return (
     <>
-      <footer className="bg-white dark:dark:bg-gradient-to-r from-[#010012] to-[#05022F]">
-        <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+      <footer className="bg-white mt-12 dark:dark:bg-gradient-to-r from-[#010012] to-[#05022F]">
+        <div className="container">
           <div className="mx-auto max-w-md">
             <strong className="block text-center text-xl font-bold text-gray-900 dark:text-white sm:text-3xl">
               Want us to email you with the latest blockbuster news?
@@ -24,7 +24,7 @@ const Footer = () => {
                   placeholder="john@doe.com"
                 />
 
-                <button className="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700">
+                <button className="absolute hover_bg end-1 top-1/2 -translate-y-1/2 rounded-full bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700">
                   Subscribe
                 </button>
               </div>
