@@ -3,7 +3,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="bg-white mt-12 dark:dark:bg-gradient-to-r from-[#010012] to-[#05022F]">
+      <footer className="bg-white mt-12 dark:bg-base-100">
         <div className="container">
           <div className="mx-auto max-w-md">
             <strong className="block text-center text-xl font-bold text-gray-900 dark:text-white sm:text-3xl">

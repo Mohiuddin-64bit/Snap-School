@@ -7,7 +7,7 @@ import Footer from '../Pages/Shared/Footer/Footer';
 
 const Main = () => {
   return (
-    <div className='dark:bg-background2 bg-center bg-cover bg-no-repeat bg-white'>
+    <div className='dark:bg-base-100 bg-center bg-cover bg-no-repeat bg-white'>
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer ></Footer>

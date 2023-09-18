@@ -2,9 +2,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import PopularClassCard from "../PopularClasses/PopularClassCard";
-// import Aos from "aos";
+import Aos from "aos";
+import "aos/dist/aos.css"
 
 const PopularClasses = () => {
+  useEffect(() => {
+    Aos.init();
+  });
   const [popularClass, setPopularClasses] = useState([]);
 
   useEffect(() => {
@@ -22,6 +26,7 @@ const PopularClasses = () => {
   return (
     <>
       <SectionTitle
+      
         heading={"Popular Class"}
         subHeading={"All Top Rated Course"}
       ></SectionTitle>

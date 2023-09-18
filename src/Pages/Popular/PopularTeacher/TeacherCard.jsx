@@ -12,6 +12,9 @@ const TeacherCard = ({ teachers }) => {
   return (
     <div>
       <Swiper
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1000"
         slidesPerView={1}
         spaceBetween={30}
         pagination={{

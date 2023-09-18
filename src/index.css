@@ -11,7 +11,6 @@
 .text {
   @apply text-black dark:text-white/80
 }
-
 .dark_mode_text {
   @apply dark:text-white/80 ;
 }
@@ -23,6 +22,9 @@
 }
 .background {
   @apply bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat
+}
+.btn_grad{
+  @apply rounded-md px-5 py-2.5 text-sm font-medium text-white hover:bg-dark-bg transition-all dark:hover:bg-white-bg bg-white-bg dark:bg-dark-bg bg-cover bg-center bg-no-repeat
 }
 .container{
   @apply mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8
